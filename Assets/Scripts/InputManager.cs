@@ -15,13 +15,20 @@ public class InputManager : MonoBehaviour
         }
 
         Vector2 input = Vector2.zero;
-        if (Input.GetKey(KeyCode.A)) input += Vector2.left;
-        if (Input.GetKey(KeyCode.D)) input += Vector2.right;
-        OnMove?.Invoke(input);
+        if (Input.GetKey(KeyCode.A))
+        { 
+            input += Vector2.left;
+        }
+        if (Input.GetKey(KeyCode.D)){
+            input += Vector2.right;
+        } 
+        
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             OnResetPressed?.Invoke();
         }
+        OnMove?.Invoke(input);
+        
     }
 }
